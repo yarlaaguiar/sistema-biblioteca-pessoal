@@ -44,7 +44,7 @@ Um sistema Full-Stack moderno desenvolvido para o gerenciamento de uma bibliotec
 ---
 
 ## 🔮 Próximos Passos (Roadmap)
-- [ ] Implementar a funcionalidade de atualizar o status do livro (Lido / Não Lido).
-- [ ] Adicionar botão para Eliminar/Excluir um livro da lista.
+- [x] Implementar a funcionalidade de atualizar o status do livro (Lido / Não Lido).
+- [x] Adicionar botão para Eliminar/Excluir um livro da lista.
 - [ ] Integração com uma API externa (ex: Google Books API) para autopreencher os dados através do ISBN.
 - [ ] Implementar testes unitários com JUnit (Backend) e Jasmine/Jest (Frontend).
