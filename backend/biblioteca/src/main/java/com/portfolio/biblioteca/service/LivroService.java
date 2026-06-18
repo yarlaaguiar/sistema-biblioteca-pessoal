@@ -13,6 +13,7 @@ import java.util.List;
 public class LivroService {
 
     private final LivroRepository repository;
+    private final LivroRepository livroRepository;
 
     public List<LivroDTO> listarTodos() {
         return repository.findAll().stream().map(livro -> new LivroDTO(
@@ -41,5 +42,17 @@ public class LivroService {
                 livroSalvo.getIsbn(),
                 livroSalvo.isLido()
         );
+    }
+    public void deletarLivro(Long id) {
+        if (!livroRepository.existsById(id)) {
+            throw new RuntimeException("Livro não encontrado com o ID: " + id);
+        }
+        livroRepository.deleteById(id);
+    }
+    public Livro alternarStatusLido(Long id) {
+        Livro livro = livroRepository.findById(id).orElseThrow(() -> new RuntimeException("Livro não encontrado com o ID: " + id));
+        // Inverte o estado atual do livro (se estava lido, passa a não lido, e vice-versa)
+        livro.setLido(!livro.isLido());
+        return livroRepository.save(livro);
     }
 }
